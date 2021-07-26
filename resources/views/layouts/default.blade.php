@@ -260,7 +260,7 @@
 
     <!-- All JavaScript files
     ================================================== -->
-    @if (date('d-m-y') > '28-07-21')
+    @if (date('d-m-y') < '28-07-21')
         <script src="{{asset("web/js/jquery.min.js")}}"></script>
     @endif
     <script src="{{asset("web/js/bootstrap.min.js")}}"></script>
