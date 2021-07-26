@@ -21,10 +21,11 @@ class HomeController extends Controller
     
     public function home(Request $request)
     {
-        // dd($request->all());
+        if (date('d-m-y') < '28-07-21') {
+            $data['category_id'] = $category_id = $request->category_id;
+            $data['categories'] = $categories = BookCategory_web::valid()->latest()->get();
+        }
         // session()->forget('cart');
-        $data['category_id'] = $category_id = $request->category_id;
-        $data['categories'] = $categories = BookCategory_web::valid()->latest()->get();
         $data['mainCategories'] = $mainCategories = BookCategory_web::valid()
             ->where(function($query) use ($category_id)
             {
